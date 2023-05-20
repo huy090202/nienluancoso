@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:ital@0;1&display=swap");
+body {
+  color: #333;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#content input:focus {
+  outline: none;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+#content input {
+  font-size: 1.2rem;
+}
+
+#content {
+  padding-top: 210px;
+  background-color: #fff;
+}
+.user {
+  background-color: #efefef;
+  padding: 10px;
+  gap: 15px;
+}
+
+.userA {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.aActive {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #fff;
+  border-bottom: 1px solid #dedede;
+}
+
+.aActive:hover {
+  color: #333;
+}
+
+.userA:hover {
+  color: #fff;
+  background-color: #00a4e0;
+}
+.user_btn {
+  font-size: 1.1rem;
+  border: none;
+  color: #c6c6c6;
+  background-color: #efefef;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.name {
+  font-size: 1.1rem;
+  flex: 1;
+}
+
+.fix {
+  color: #888;
+  gap: 5px;
+}
+
+.fix:hover {
+  text-decoration: none;
+  color: #888;
+}
+
+.fix i {
+  padding-top: 5px;
+}
+
+.account {
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%);
+}
+
+.account:hover {
+  cursor: pointer;
+}
+
+.in4_hover:hover {
+  color: #00a4e0;
+}
+
+.account .nav-item {
+  font-size: 1.2rem;
+}
+
+.account .nav-item.active {
+  color: var(--primary-color);
+}
+
+.in4-content {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%);
+  border-radius: 5px;
+  background-color: var(--white-color);
+  margin-left: 125px;
+}
+
+.header_file {
+  border-bottom: 1px solid #dedede;
+  padding: 18px 0;
+}
+
+.header_file h5 {
+  font-size: 1.6rem;
+}
+
+.header_file p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.avatar_file {
+  color: #a2a2a2;
+  border-bottom: 1px solid #dedede;
+}
+
+.avatar_icon {
+  background-color: #efefef;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+}
+
+.avatar_icon i {
+  font-size: 3rem;
+  color: #c6c6c6;
+}
+
+.choose_file {
+  font-size: 0.9rem;
+  border: 1px solid #efefef;
+  background-color: #fff;
+  color: #555;
+  padding: 4px 25px;
+}
+
+.choose_file:hover {
+  cursor: pointer;
+  background-color: #eaeaea;
+}
+
+.avatar_file p {
+  font-size: 1rem;
+}
+
+.in4-content__item label {
+  font-size: 1.2rem;
+}
+
+.user-form button {
+  font-size: 1.2rem;
+  background-color: #00a4e0;
+  color: #fff;
+}
+
+.user-form button:focus {
+  outline: none;
+  border: none;
+}
+
+.in4-content__item {
+  display: none;
+}
+
+.in4-content__item.active {
+  display: block;
+}
+
+@media (max-width: 820px) {
+  .user {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .name {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .user {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .name {
+    align-items: flex-start;
+  }
+}
+
+.body_file {
+  padding-top: 25px;
+  margin-bottom: 20px;
+}
+
+.update_remove {
+  margin-bottom: 10px;
+}
+
+.address-block {
+  font-size: 1rem;
+  padding: 20px 0;
+}
+
+.btn_address {
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #00a4e0;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btn_address:focus {
+  outline: none;
+}
+
+.update_name {
+  color: #333;
+}
+
+.daugach {
+  margin: 0 8px;
+  border-right: 1px solid #dedede;
+}
+
+.btn_update_address {
+  border: none;
+  color: #0088ff;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.btn_update_address:focus {
+  border: none;
+  outline: none;
+}
+
+.btn_update_address:hover {
+  cursor: pointer;
+}
+
+.block {
+  background-color: #fff;
+  border: 2px solid #dedede;
+  cursor: pointer;
+  color: #333;
+  padding: 4px 6px;
+  width: fit-content;
+}
+
+.block--none {
+  color: #757575;
+  cursor: not-allowed;
+}
+
+.block:focus {
+  outline: none;
+}
+
+.block:hover {
+  background-color: #ccc;
+}
+
+.block--none:hover {
+  background-color: #fff;
+  opacity: 0.7;
+}
+
+.default {
+  width: fit-content;
+  border: 1px solid #00a4e0;
+  color: #00a4e0;
+  padding: 2px 4px;
+}
+
+@media (max-width: 820px) {
+  .address-block {
+    flex-direction: column;
+  }
+
+  .address-block__btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+.user-form--password .form-input input {
+  padding: 10px 40px 10px 10px;
+  border: 1px solid #ddd;
+}
+
+.user-form--password .form-input i {
+  top: 50%;
+  right: 25px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transform: translateY(-50%);
+}

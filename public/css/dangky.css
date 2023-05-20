@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:ital@0;1&display=swap");
+body {
+  color: #333;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#main {
+  padding-top: 180px;
+}
+.main-form {
+  padding: 0 0 50px 28px;
+  width: 80%;
+  border-radius: 5px;
+  margin-left: 10%;
+  margin-top: 30px;
+  border: 1px solid #00a4e0;
+}
+
+.main-title {
+  color: #00a4e0;
+  margin: 30px 0;
+}
+
+.main-form__label {
+  margin-top: 10px;
+  height: 38px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.main-form__label1 {
+  margin-top: -3px;
+  height: 38px;
+  font-weight: bold;
+}
+.main-form__input {
+  width: 80px;
+}
+
+.main-form__group {
+  margin-bottom: 30px;
+}
+
+.main-form__bottom {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-form__bottom b {
+  margin-bottom: 20px;
+}
+
+.form-bottom__son input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.login {
+  margin-right: 10px;
+  background-color: #00a4e0;
+}
+
+.exit {
+  background-color: #d26e4b;
+}

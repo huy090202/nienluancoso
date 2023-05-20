@@ -1,0 +1,76 @@
+body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.searchProRow {
+  padding-top: 30px;
+}
+
+.title {
+  padding-top: 240px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #00a4e0;
+  text-transform: uppercase;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-body p {
+  font-size: 14px;
+  font-weight: bold;
+}
+.card-text {
+  color: red;
+}
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.cardA {
+  font-weight: bold;
+  color: #00a4e0;
+}
+
+.cardA:hover {
+  color: #00a4e0;
+  text-decoration: none;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-img-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 182px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transition: all 0.3s linear;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}

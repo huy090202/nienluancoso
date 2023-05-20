@@ -1,0 +1,252 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 18, 2023 lúc 09:30 AM
+-- Phiên bản máy phục vụ: 10.4.27-MariaDB
+-- Phiên bản PHP: 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `ct271_nienluancoso`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill`
+--
+
+CREATE TABLE `bill` (
+  `id_bill` char(8) NOT NULL,
+  `date_create` timestamp NOT NULL DEFAULT current_timestamp(),
+  `statusBill` tinyint(1) NOT NULL,
+  `id_user` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill`
+--
+
+INSERT INTO `bill` (`id_bill`, `date_create`, `statusBill`, `id_user`) VALUES
+('64647ccb', '2023-05-17 07:05:47', 0, '6439017c'),
+('64647cd0', '2023-05-17 07:05:52', 0, '6439017c'),
+('64647cd2', '2023-05-17 07:05:54', 0, '6439017c');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contact`
+--
+
+CREATE TABLE `contact` (
+  `id_contact` char(8) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `id_user` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `contact`
+--
+
+INSERT INTO `contact` (`id_contact`, `content`, `id_user`) VALUES
+('6463b209', 'toi muon den cua hang vao ngay mai vao luc 7h de mua pin va sac\r\n', '6463b1cf'),
+('6464d67e', 'a hi hi đồ ngốc', '645f2fa6');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `detailbill`
+--
+
+CREATE TABLE `detailbill` (
+  `id_bill` char(8) NOT NULL,
+  `id_product` char(8) NOT NULL,
+  `quantityPro` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `detailbill`
+--
+
+INSERT INTO `detailbill` (`id_bill`, `id_product`, `quantityPro`) VALUES
+('64647ccb', '643126a6', 1),
+('64647cd0', '643126a6', 1),
+('64647cd2', '643126bf', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product`
+--
+
+CREATE TABLE `product` (
+  `id_product` char(8) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `price` int(11) NOT NULL,
+  `image` varchar(500) NOT NULL,
+  `allQuantityPro` int(11) NOT NULL,
+  `describe_pro` varchar(255) DEFAULT NULL,
+  `id_type` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`id_product`, `product_name`, `price`, `image`, `allQuantityPro`, `describe_pro`, `id_type`) VALUES
+('642c49f4', 'Pin Dự Phòng Anker Pro Max Plus', 200000, 'public/images/trangchu/spbc1.jpg', 50, 'Pin Dự Phòng Anker Pro Max Plus', '642c49cf'),
+('6431252c', 'Pin dự phòng Anker PowerCore 10400 - A1214', 750000, 'public/images/sanpham/sp3.jpg', 50, 'Pin dự phòng Anker PowerCore 10400 - A1214', '642c49cf'),
+('643125ae', 'Pin dự phòng Anker PowerCore+ 10050 - A1310', 650000, 'public/images/sanpham/sp8.jpg', 50, 'Pin dự phòng Anker PowerCore+ 10050 - A1310', '642c49cf'),
+('643125c5', 'Sạc Anker 2 Cổng, 12w - [PowerPort 2 Lite, 2 x IQ ', 650000, 'public/images/sanpham/sp9.jpg', 50, 'Sạc Anker 2 Cổng, 12w - [PowerPort 2 Lite, 2 x IQ port] - A2129', '642c47ca'),
+('643125e3', 'Sạc Anker 4 cổng, 40w - [PowerPort 4, 40w] - A2142', 700000, 'public/images/sanpham/sp10.jpg', 50, 'Sạc Anker 4 cổng, 40w - [PowerPort 4, 40w] - A2142', '642c47ca'),
+('643125fb', 'Sạc Anker 6 cổng, 60w [PowerPort 6, 60w] - A2123', 900000, 'public/images/sanpham/sp11.jpg', 50, 'Sạc Anker 6 cổng, 60w [PowerPort 6, 60w] - A2123', '642c47ca'),
+('6431268f', 'Pin dự phòng Anker PowerCore 10000 - A1263', 790000, 'public/images/sanpham/pin/p2.jpg', 50, 'Pin dự phòng Anker PowerCore 10000 - A1263', '642c49cf'),
+('643126a6', 'Pin dự phòng Anker PowerCore 13000 - A1215', 1000000, 'public/images/sanpham/pin/p3.jpg', 50, 'Pin dự phòng Anker PowerCore 13000 - A1215', '642c49cf'),
+('643126bf', 'Pin dự phòng Anker PowerCore 20100 - A1271', 1390000, 'public/images/sanpham/pin/p4.jpg', 50, 'Pin dự phòng Anker PowerCore 20100 - A1271', '642c49cf'),
+('643126fb', 'Pin Dự Phòng Anker PowerCore Elite 20000 - A1273', 1500000, 'public/images/sanpham/pin/p5.jpg', 50, 'Pin Dự Phòng Anker PowerCore Elite 20000 - A1273', '642c49cf'),
+('64312713', 'Pin Dự Phòng Anker PowerCore II 10000mAh - A1230', 950000, 'public/images/sanpham/pin/p6.jpg', 50, 'Pin Dự Phòng Anker PowerCore II 10000mAh - A1230', '642c49cf'),
+('64312788', 'Sạc Không Dây Anker Powerport Qi, 5w - A2511', 500000, 'public/images/sanpham/sac/s5.jpg', 50, 'Sạc Không Dây Anker Powerport Qi, 5w - A2511', '642c47ca'),
+('6431279f', 'Tai nghe Anker Liberty Air 2 A3910 - tai nghe Blue', 2490000, 'public/images/sanpham/tainghe/tn1.jpg', 50, 'Tai nghe Anker Liberty Air 2 A3910 - tai nghe Bluetooth', '642c47d6'),
+('643127b6', 'Tai nghe Bluetooth Anker Soundbuds Rise', 450000, 'public/images/sanpham/tainghe/tn2.png', 50, 'Tai nghe Bluetooth Anker Soundbuds Rise', '642c47d6'),
+('643127c9', 'Tai nghe không dây Anker Soundcore Spirit X', 900000, 'public/images/sanpham/tainghe/tn3.jpg', 50, 'Tai nghe không dây Anker Soundcore Spirit X', '642c47d6'),
+('643127dc', 'Tai nghe không dây Anker Soundcore Liberty 2 Pro', 3500000, 'public/images/sanpham/tainghe/tn4.jpg', 50, 'Tai nghe không dây Anker Soundcore Liberty 2 Pro', '642c47d6'),
+('643127f5', 'Ốp Lưng Anker KARAPAX Shield cho iPhone X - A9007', 200000, 'public/images/sanpham/op/o1.jpg', 50, 'Ốp Lưng Anker KARAPAX Shield cho iPhone X - A9007', '642c47e2'),
+('6431280b', 'Ốp Lưng Anker KARAPAX Touch iPhone X - A9004', 200000, 'public/images/sanpham/op/o2.jpg', 50, 'Ốp Lưng Anker KARAPAX Touch iPhone X - A9004', '642c47e2'),
+('6431281f', 'Ốp Lưng iPhone 7 Plus Anker SlimShell - A7051', 330000, 'public/images/sanpham/op/o3.jpg', 50, 'Ốp Lưng iPhone 7 Plus Anker SlimShell - A7051', '642c47e2'),
+('64317c62', 'Sạc Anker PowerPort Mini 2 Cổng, 12w - A2620', 650000, 'public/images/trangchu/spbc4.jpg', 50, 'Sạc Anker PowerPort Mini 2 Cổng, 12w - A2620', '642c47ca'),
+('645e00e9', 'Tai Nghe Bluetooth Anker SoundBuds Life', 1399000, 'public/images/sanpham/tainghe/tn2-2.jpg', 50, 'Tai Nghe Bluetooth Anker SoundBuds Life', '642c47d6'),
+('645e0132', 'Tai Nghe Bluetooth Anker SoundBuds Curve - A3411', 1100000, 'public/images/sanpham/tainghe/tn3-3.jpg', 50, 'Tai Nghe Bluetooth Anker SoundBuds Curve - A3411', '642c47d6'),
+('645e01ab', 'Tai nghe bluetooth Anker TWS SoundCore Life P2 A39', 950000, 'public/images/sanpham/tainghe/tn1-1.jpg', 50, 'Tai nghe bluetooth Anker TWS SoundCore Life P2 A3919', '642c47d6'),
+('645e033d', 'Tai Nghe Bluetooth 4.1 Anker Soundcore Space NC - ', 3200000, 'public/images/sanpham/tainghe/tn4-4.jpg', 50, 'Tai Nghe Bluetooth 4.1 Anker Soundcore Space NC - A3021', '642c47d6'),
+('645e03d6', 'ỐP LƯNG ANKER KARAPAX SHIELD CHO IPHONE 7/ 8 - A90', 200000, 'public/images/sanpham/op/o1-1.jpg', 50, 'ỐP LƯNG ANKER KARAPAX SHIELD CHO IPHONE 7/ 8 - A9005', '642c47e2'),
+('645e045a', 'Ốp Lưng iPhone 7+ Anker SlimShell - A7051', 329000, 'public/images/sanpham/op/o3-3.jpg', 50, 'Ốp Lưng iPhone 7+Anker SlimShell - A7051', '642c47e2'),
+('645e04a4', 'Ốp lưng cho iPhone X - Anker KARAPAX Touch Case', 200000, 'public/images/sanpham/op/o2-2.jpg', 50, 'Ốp lưng cho iPhone X - Anker KARAPAX Touch Case', '642c47e2');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `typeofproduct`
+--
+
+CREATE TABLE `typeofproduct` (
+  `id_type` char(8) NOT NULL,
+  `name_type` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `typeofproduct`
+--
+
+INSERT INTO `typeofproduct` (`id_type`, `name_type`) VALUES
+('642c47ca', 'Sạc'),
+('642c47d6', 'Tai Nghe'),
+('642c47e2', 'Ốp Lưng'),
+('642c49cf', 'Pin Dự Phòng');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` char(8) NOT NULL,
+  `user_name` varchar(40) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_number` varchar(10) NOT NULL,
+  `user_address` varchar(500) NOT NULL,
+  `isAdmin` int(1) NOT NULL CHECK (`isAdmin` in (0,1))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id_user`, `user_name`, `user_password`, `email`, `phone_number`, `user_address`, `isAdmin`) VALUES
+('64294882', 'huytest002', '$2y$10$bc3zG1pb9qK.t.IXdRX4vOjtQ3su4cqt3LD3AJZsDp8P2zC.v82zy', 'huytest002@gmail.com', '0000000003', 'Ca Mau', 0),
+('642d7d66', 'huytest005', '$2y$10$7VHk.7XZIkGrl9s0XCKg2OzUyAGaf6445MKuAHUtKlUfjkG3izp9O', 'huytest005@gmain.com', '0000000005', 'Ca Mau', 0),
+('6439017c', 'HuyAdmin', '$2y$10$PDkMli9/DWL1lJwi93hZu.X7o1nAH6o8ddtgykTQUDAw3B2PCQIpm', 'huyadmin@gmail.com', '0788793092', 'Ca Mau', 1),
+('645f2fa6', 'HuyTestAdmin', '$2y$10$vTiRhmg4qGT3.U3BKys7COrrzioLn0FqGI3d2iZ/r5uebkaSjJJgm', 'huytestadmin@gmail.com', '0788793099', 'Ca Mau', 1),
+('6463b1cf', 'PhamDangHuy', '$2y$10$q72bKACNG1wMCgmZzmbzHe.N7xUGMbpAjHoyYpa0cRgUZ.4PXrg7S', 'huy@gamail.com', '0788793092', 'Ca Mau', 0);
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`id_bill`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Chỉ mục cho bảng `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id_contact`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Chỉ mục cho bảng `detailbill`
+--
+ALTER TABLE `detailbill`
+  ADD PRIMARY KEY (`id_bill`,`id_product`);
+
+--
+-- Chỉ mục cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id_product`),
+  ADD KEY `id_type` (`id_type`);
+
+--
+-- Chỉ mục cho bảng `typeofproduct`
+--
+ALTER TABLE `typeofproduct`
+  ADD PRIMARY KEY (`id_type`);
+
+--
+-- Chỉ mục cho bảng `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `bill`
+--
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+
+--
+-- Các ràng buộc cho bảng `contact`
+--
+ALTER TABLE `contact`
+  ADD CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+
+--
+-- Các ràng buộc cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_type`) REFERENCES `typeofproduct` (`id_type`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
