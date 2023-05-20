@@ -6,6 +6,7 @@ class giohang extends Controller{
 
     //xoa san pham khoi gio hang
     function deleteProCart (string $id) {
+        
         if(strlen($id) == 0) {
             redirect('/nienluancoso/giohang');
         }
@@ -25,6 +26,7 @@ class giohang extends Controller{
     }
 
     function loading(){
+        
         $bill = $this->model('bill');
         $product = [];
         if(isset($_SESSION['cart'])) {
@@ -56,9 +58,6 @@ class giohang extends Controller{
             }
         }
 
-        
-        
-       
         $numbers = [];
         $sumDola = 0;
        
@@ -70,6 +69,7 @@ class giohang extends Controller{
                 $numbers[] = [...$one, ...$val];
             }   
         }
+        
         $this->view('index', [
             'page'=> 'giohang',
             'title'=> 'Anker - Giỏ Hàng',

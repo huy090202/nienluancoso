@@ -6,6 +6,7 @@ class nguoidung extends Controller{
     
     //Cap nhat thong tin nguoi dung
     function updateUserById(string $id) {
+        
         $updateUserById = ($this->model('user'))->getUserById($id);
 
         if (!$updateUserById) {
@@ -27,7 +28,6 @@ class nguoidung extends Controller{
                 echo "<script>alert('Cập nhật thông tin người dùng thất bại, vui lòng thực hiện lại!');</script>";
             }
         }
-        
 
         $this->view('isUser', [
             'page'=> 'nguoidung',
@@ -39,7 +39,9 @@ class nguoidung extends Controller{
     }
 
     function loading(){
+        
         $user = ($this->model('user'))->getUserById($_COOKIE['id_user']);
+        
         $this->view('isUser', [
             'page'=> 'nguoidung',
             'css' => 'nguoidung',

@@ -6,6 +6,7 @@ class admin extends Controller{
 
     //neu la admin thi co the vao trang admin
     public function __construct() {
+        
         if(isset($_COOKIE['id_user'])){
             $user = ($this->model('user'))->getUserById($_COOKIE['id_user']);
             if(!empty($user) ){
@@ -20,6 +21,7 @@ class admin extends Controller{
 
     //cap nhat quyen admin
     function updateAdmin(string $id) {
+        
         $getAdminById = ($this->model('user'))->getUserById($id);
 
         if (!$getAdminById) {
@@ -52,6 +54,7 @@ class admin extends Controller{
 
     //hien thi tat ca loai
     function typeShow() {
+        
         $type = ($this->model('typeOfProduct'))->getAllType();
 
         $this->view('isAdmin', [
@@ -88,6 +91,7 @@ class admin extends Controller{
 
     //sua loai
     function updateTypeById(string $id) {
+        
         $getTypeById = ($this->model('typeOfProduct'))->getAllTypeId($id);
 
         if (!$getTypeById) {
@@ -120,6 +124,7 @@ class admin extends Controller{
 
     //xoa loai
     function deleteType(string $id) {
+        
         if(strlen($id) == 0) {
             redirect('/nienluancoso/admin/typeShow');
         }
@@ -143,6 +148,7 @@ class admin extends Controller{
 
     //hien thi tat ca san pham
     function productShow() {
+        
         $product = ($this->model('product'))->getAllProducts();
         $productArr = [];
         if(!empty($product)){
@@ -163,8 +169,9 @@ class admin extends Controller{
 
     //them mot san pham moi
     function addProduct() {
-        $type = ($this->model('typeOfProduct'))->getAllType();
         
+        $type = ($this->model('typeOfProduct'))->getAllType();
+                
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!empty($_POST)) {
                 if (isset($_FILES['image'])) {
@@ -195,6 +202,7 @@ class admin extends Controller{
 
     //sua san pham
     function updateProduct(string $id) {
+        
         $showType = ($this->model('typeOfProduct'))->getAllType();
         $product = ($this->model('product'))->getAllProducts();
         $productArr = array();
@@ -231,7 +239,6 @@ class admin extends Controller{
             }
         }
         
-
         $this->view('isAdmin', [
             'page'=> 'admin',
             'css' => 'admin',
@@ -244,6 +251,7 @@ class admin extends Controller{
 
     //xoa san pham
     function deleteProduct(string $id) {
+        
         if(strlen($id) == 0) {
             redirect('/nienluancoso/admin/productShow');
         }
@@ -267,6 +275,7 @@ class admin extends Controller{
 
     //hien thi tat ca user
     function user() {
+        
         $user = ($this->model('user'))->getAllUsers();
 
         $this->view('isAdmin', [
@@ -322,7 +331,6 @@ class admin extends Controller{
             }
         }
         
-
         $this->view('isAdmin', [
             'page'=> 'admin',
             'css' => 'admin',
@@ -371,6 +379,7 @@ class admin extends Controller{
         if (!$getDetailBillById) {
             die('Chi tiết hóa đơn không tồn tại');
         }
+        
         $this->view('isAdmin', [
             'page'=> 'admin',
             'css' => 'admin',
@@ -384,16 +393,15 @@ class admin extends Controller{
 
     //huy bill
     public function deleteBill($billId) {
-        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $delete = ($this->model('bill'))->deleteBillAndDetails($billId);
             if($delete) {
                 redirect('/nienluancoso/admin/showBill');
             } else{
-    
                 echo "<script>alert('Hủy hóa đơn thất bại, vui lòng thực hiện lại!');</script>";
             }
         }
+        
         $this->view('isAdmin', [
             'page'=> 'admin',
             'css' => 'admin',
@@ -441,8 +449,6 @@ class admin extends Controller{
         }
 
         $contact = ($this->model('contact'))->getContactById($id);
-        
-
         $this->view('isAdmin', [
             'page'=> 'admin',
             'css' => 'admin',

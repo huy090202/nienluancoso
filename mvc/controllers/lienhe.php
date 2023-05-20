@@ -5,6 +5,7 @@
 class lienhe extends Controller{
 
     function loading(){
+        
         if(isset($_COOKIE['id_user'])) {
             $user = ($this->model('user'))->getUserById($_COOKIE['id_user']);
         } else {
@@ -24,6 +25,7 @@ class lienhe extends Controller{
                 }
             }
         }
+        
         $this->view('index', [
             'page'=> 'lienhe',
             'title'=> 'Anker - Liên Hệ Và Sủa Chữa',

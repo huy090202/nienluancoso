@@ -12,6 +12,7 @@ class Controller{
 
     //them san pham vao gio hang
     public function addCart(array $post) : void {
+        
         if(!empty($post)) {
             if(!isset($_SESSION['cart'])) {
                 $_SESSION['cart'] = [];
@@ -28,9 +29,7 @@ class Controller{
                        $value['quantity'] += +$post['quantity'];
 
                     }
-                    
                     $check[]= $value;
-
                 }
                 if($checkSave) {
                     $check[] = $post;
@@ -40,6 +39,5 @@ class Controller{
             }
         }
     }
-
 }
 ?>

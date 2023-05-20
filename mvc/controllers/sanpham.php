@@ -3,11 +3,10 @@
 
 define('LENGTH', 16);
 class sanpham extends Controller{
-
     
-
     //chi tiet san pham
     function describeProduct($id){
+        
         //them san pham vao gio hang
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_COOKIE['id_user'])) {

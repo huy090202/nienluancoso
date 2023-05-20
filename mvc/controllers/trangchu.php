@@ -6,12 +6,14 @@ class trangchu extends Controller {
 
     //tim kiem san pham
     function searchProduct() {
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $search = isset($_POST['search']) ? $_POST['search'] : '';
             $products = [];
             if (!empty($search)) {
                 $products = ($this->model('product'))->searchPro($search);
             }
+            
             $this->view('index', [
                 'page'=> 'searchPro',
                 'css' => 'searchPro',
@@ -32,7 +34,6 @@ class trangchu extends Controller {
         }
 
         $product = ($this->model('product'))->getProductAllLimit(LENGTH);
-
 
         $this->view('index', [
             'page'=> 'trangchu',

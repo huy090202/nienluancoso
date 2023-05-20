@@ -45,7 +45,6 @@ class product extends DB {
         $query->bindParam(':start', $start, \PDO::PARAM_INT);
         $query->execute();
        
-       
         return $query->fetchAll();
     }
 

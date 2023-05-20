@@ -42,7 +42,6 @@
         }
 
         //xac nhan bill
-
         public function updateBillById(string $id, array $data): int | false {
             $params = $data;
             $params["id_bill"] = $id;

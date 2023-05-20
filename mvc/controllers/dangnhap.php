@@ -5,6 +5,7 @@
 class dangnhap extends Controller{
 
     function loading(){
+        
         $user = $this->model('user');
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
